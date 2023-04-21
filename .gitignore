@@ -28,3 +28,23 @@
 # Ignore master key for decrypting credentials and more.
 /config/master.key
 /node_modules
+/public/packs
+/public/packs-test
+/node_modules
+/yarn-error.log
+yarn-debug.log*
+.yarn-integrity
+Gemfile
+Gemfile.lock
+package.json
+postcss.config.js
+yarn.lock
+/config/webpacker.yml
+/config/webpack/test.js
+/config/webpack/production.js
+/config/webpack/development.js
+/bin/webpack
+/bin/webpack-dev-server
+babel.config.js
+.browserlistrc
+/config/database.yml

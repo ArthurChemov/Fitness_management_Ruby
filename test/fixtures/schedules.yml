@@ -1,0 +1,13 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  trainer: MyText
+  usertrained: MyText
+  dateoftraining: 2023-04-21
+  cost: 
+
+two:
+  trainer: MyText
+  usertrained: MyText
+  dateoftraining: 2023-04-21
+  cost: 
