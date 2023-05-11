@@ -7,4 +7,4 @@ test:
 production:
   adapter: redis
   url: <%= ENV.fetch("REDIS_URL") { "redis://localhost:6379/1" } %>
-  channel_prefix: Fitness_management_Ruby_production
+  channel_prefix: fitness_management_ruby_production

@@ -21,6 +21,10 @@ gem 'jbuilder', '~> 2.7'
 gem 'tzinfo-data', '~> 1.2023', '>= 1.2023.3'
 
 gem 'wdm', '>= 0.1.0'
+
+gem 'devise'
+
+gem 'activeadmin'
 # Use Redis adapter to run Action Cable in production
 # gem 'redis', '~> 4.0'
 # Use Active Model has_secure_password
