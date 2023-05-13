@@ -1,6 +1,7 @@
 class FitnesstrackerController < ApplicationController
     def index
-    
+      @users = User.all
+      @user = @users.first!
     end
     def set_cookie
         # Get the user input from params
