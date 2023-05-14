@@ -12,9 +12,9 @@
           <svg class="bi me-2" width="40" height="32" role="img" aria-label="Bootstrap"><use xlink:href="#bootstrap"/></svg>
         </a>
         <% if @user.nil? %>
-        <%= link_to "Dummy panel", dummypage_path %>
+        <%= link_to "Dummy panel", userpanel_path %>
         <% else %>
-        <%= link_to "User panel", user_path(@user) %>
+        <%= link_to "User panel", admin_user_path(@user) %>
         <% end %>
         <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
           <li><a href="#" class="nav-link px-2 text-secondary">Button 1</a></li>
