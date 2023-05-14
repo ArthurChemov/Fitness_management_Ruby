@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2023_05_10_084437) do
+ActiveRecord::Schema.define(version: 2023_05_14_080336) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -41,43 +41,93 @@ ActiveRecord::Schema.define(version: 2023_05_10_084437) do
     t.index ["reset_password_token"], name: "index_admin_users_on_reset_password_token", unique: true
   end
 
-  create_table "admins", force: :cascade do |t|
-    t.string "adminname"
-    t.string "password"
+  create_table "coupons", force: :cascade do |t|
+    t.string "name"
+    t.integer "discount"
+    t.date "date_start"
+    t.date "date_end"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "nutrits", force: :cascade do |t|
-    t.text "trainer"
-    t.text "usertrainer"
-    t.text "nutritionplan"
-    t.date "dateofappointment"
+    t.string "name"
+    t.string "description"
+    t.integer "callories"
+    t.integer "protein"
+    t.integer "fats"
+    t.integer "carbohydrates"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
 
-  create_table "schedules", force: :cascade do |t|
-    t.text "trainer"
-    t.text "usertrained"
-    t.date "dateoftraining"
-    t.integer "cost"
+  create_table "reviews", force: :cascade do |t|
+    t.integer "user_id"
+    t.integer "trainer_id"
+    t.integer "rate"
+    t.string "description"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "subscriptions", force: :cascade do |t|
+    t.string "type"
+    t.date "date_start"
+    t.date "date_end"
+    t.integer "price"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "trainers", force: :cascade do |t|
-    t.string "trainername"
-    t.string "password"
+    t.string "email", default: "", null: false
+    t.string "encrypted_password", default: "", null: false
+    t.string "sex"
+    t.date "date_start_work", default: -> { "CURRENT_DATE" }
+    t.string "tel"
+    t.string "reset_password_token"
+    t.datetime "reset_password_sent_at"
+    t.datetime "remember_created_at"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["email"], name: "index_trainers_on_email", unique: true
+    t.index ["reset_password_token"], name: "index_trainers_on_reset_password_token", unique: true
+  end
+
+  create_table "trainings", force: :cascade do |t|
+    t.string "name"
+    t.string "description"
+    t.integer "rate"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "users", force: :cascade do |t|
-    t.string "username"
-    t.string "password"
+    t.string "email", default: "", null: false
+    t.string "encrypted_password", default: "", null: false
+    t.integer "trainer_id"
+    t.integer "training_id"
+    t.integer "nutrit_id"
+    t.string "sex"
+    t.integer "height"
+    t.integer "weight"
+    t.string "tel"
+    t.integer "subscription_id"
+    t.integer "coupon_id"
+    t.string "reset_password_token"
+    t.datetime "reset_password_sent_at"
+    t.datetime "remember_created_at"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["email"], name: "index_users_on_email", unique: true
+    t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "reviews", "trainers"
+  add_foreign_key "reviews", "users"
+  add_foreign_key "users", "coupons"
+  add_foreign_key "users", "nutrits"
+  add_foreign_key "users", "subscriptions"
+  add_foreign_key "users", "trainers"
+  add_foreign_key "users", "trainings"
 end

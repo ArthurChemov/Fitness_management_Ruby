@@ -1,4 +1,8 @@
 class Trainer < ApplicationRecord
-    validates :trainername, presence: true, length: {minimum:2, maximum:40}
-    validates :password, presence: true, length: {minimum:2, maximum:40}
+  has_many :users
+  has_many :reviews, dependent: :destroy
+  # Include default devise modules. Others available are:
+  # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
+  devise :database_authenticatable,
+         :recoverable, :rememberable, :validatable
 end
