@@ -10,8 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2023_05_14_080336) do
-
+ActiveRecord::Schema[7.0].define(version: 2023_05_17_090917) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -22,8 +21,8 @@ ActiveRecord::Schema.define(version: 2023_05_14_080336) do
     t.bigint "resource_id"
     t.string "author_type"
     t.bigint "author_id"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
     t.index ["author_type", "author_id"], name: "index_active_admin_comments_on_author"
     t.index ["namespace"], name: "index_active_admin_comments_on_namespace"
     t.index ["resource_type", "resource_id"], name: "index_active_admin_comments_on_resource"
@@ -33,21 +32,19 @@ ActiveRecord::Schema.define(version: 2023_05_14_080336) do
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
     t.string "reset_password_token"
-    t.datetime "reset_password_sent_at"
-    t.datetime "remember_created_at"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
+    t.datetime "reset_password_sent_at", precision: nil
+    t.datetime "remember_created_at", precision: nil
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
     t.index ["email"], name: "index_admin_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_admin_users_on_reset_password_token", unique: true
   end
 
   create_table "coupons", force: :cascade do |t|
-    t.string "name"
-    t.integer "discount"
-    t.date "date_start"
-    t.date "date_end"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
+    t.string "coupons"
+    t.text "body"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "nutrits", force: :cascade do |t|
@@ -57,8 +54,13 @@ ActiveRecord::Schema.define(version: 2023_05_14_080336) do
     t.integer "protein"
     t.integer "fats"
     t.integer "carbohydrates"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "personalschelude", force: :cascade do |t|
+    t.bigint "users_id"
+    t.index ["users_id"], name: "index_personalschelude_on_users_id"
   end
 
   create_table "reviews", force: :cascade do |t|
@@ -66,17 +68,17 @@ ActiveRecord::Schema.define(version: 2023_05_14_080336) do
     t.integer "trainer_id"
     t.integer "rate"
     t.string "description"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "subscriptions", force: :cascade do |t|
-    t.string "type"
+    t.string "subscriptiontype"
     t.date "date_start"
     t.date "date_end"
     t.integer "price"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "trainers", force: :cascade do |t|
@@ -86,10 +88,10 @@ ActiveRecord::Schema.define(version: 2023_05_14_080336) do
     t.date "date_start_work", default: -> { "CURRENT_DATE" }
     t.string "tel"
     t.string "reset_password_token"
-    t.datetime "reset_password_sent_at"
-    t.datetime "remember_created_at"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
+    t.datetime "reset_password_sent_at", precision: nil
+    t.datetime "remember_created_at", precision: nil
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
     t.index ["email"], name: "index_trainers_on_email", unique: true
     t.index ["reset_password_token"], name: "index_trainers_on_reset_password_token", unique: true
   end
@@ -98,8 +100,8 @@ ActiveRecord::Schema.define(version: 2023_05_14_080336) do
     t.string "name"
     t.string "description"
     t.integer "rate"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "users", force: :cascade do |t|
@@ -115,14 +117,15 @@ ActiveRecord::Schema.define(version: 2023_05_14_080336) do
     t.integer "subscription_id"
     t.integer "coupon_id"
     t.string "reset_password_token"
-    t.datetime "reset_password_sent_at"
-    t.datetime "remember_created_at"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
+    t.datetime "reset_password_sent_at", precision: nil
+    t.datetime "remember_created_at", precision: nil
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "personalschelude", "users", column: "users_id"
   add_foreign_key "reviews", "trainers"
   add_foreign_key "reviews", "users"
   add_foreign_key "users", "coupons"

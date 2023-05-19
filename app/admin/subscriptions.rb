@@ -1,23 +1,24 @@
-ActiveAdmin.register Trainer do
+ActiveAdmin.register Subscription do
 
   # See permitted parameters documentation:
   # https://github.com/activeadmin/activeadmin/blob/master/docs/2-resource-customization.md#setting-up-strong-parameters
   #
   # Uncomment all parameters which should be permitted for assignment
   #
-  permit_params :email, :encrypted_password
+  permit_params :subscriptiontype, :date_start, :date_end, :price
   form do |f|
     f.inputs do
-      f.input :email
-      f.input :encrypted_password
+      f.input :subscriptiontype
+      f.input :date_start
+      f.input :date_end
+      f.input :price
     end
     f.actions
   end
-  #
   # or
   #
   # permit_params do
-  #   permitted = [:trainername, :password]
+  #   permitted = [:subscriptiontype, :date_start, :date_end, :price]
   #   permitted << :other if params[:action] == 'create' && current_user.admin?
   #   permitted
   # end

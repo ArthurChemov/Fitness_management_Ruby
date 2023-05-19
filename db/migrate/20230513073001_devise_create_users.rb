@@ -15,7 +15,6 @@ class DeviseCreateUsers < ActiveRecord::Migration[6.1]
       t.string :tel, :null => true
       t.integer :subscription_id, :null => true
       t.integer :coupon_id, :null => true
-
       ## Recoverable
       t.string   :reset_password_token
       t.datetime :reset_password_sent_at

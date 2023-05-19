@@ -5,11 +5,22 @@ ActiveAdmin.register User do
   #
   # Uncomment all parameters which should be permitted for assignment
   #
-  permit_params :username, :password
+  permit_params :email, :password, :sex, :height, :weight, :tel, :password_confirmation, :nutrit_id, :training_id, :trainer_id, :subscription_id, :coupon_id, :encrypted_password
   form do |f|
     f.inputs do
-      f.input :username
+      f.input :email
       f.input :password
+      f.input :password_confirmation
+      f.input :encrypted_password
+      f.input :sex
+      f.input :height
+      f.input :weight
+      f.input :tel
+      f.input :nutrit_id
+      f.input :training_id
+      f.input :trainer_id
+      f.input :subscription_id
+      f.input :coupon_id
     end
     f.actions
   end

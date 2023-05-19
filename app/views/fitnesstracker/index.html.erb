@@ -1,40 +1,135 @@
-<!DOCTYPE html>
-<html>
-<head>
-  <title>Example Page</title>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.0.2/css/bootstrap.min.css">
-</head>
+<style>
+  .container22 {
+    text-align: center;
+    position: relative;
+    margin-top: 1%;
+  }
+
+  .text-field22 {
+    padding: 10px;
+    margin-bottom: 10px;
+    width: 200px;
+  }
+
+  .button22 {
+    padding: 10px 20px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    cursor: pointer;
+    font-size: 16px;
+  }
+
+  .upperbuttons{
+    padding-top: 1%;
+    margin-left: 4%;
+  }
+  .authlink {
+    margin-left: -1%;
+    position: absolute;
+
+  }
+  .upperpanel{
+    font-family: 'Roboto';
+    font-size: large;
+    src: url('Roboto-Black.ttf');
+    font-weight: lighter;
+  }
+</style>
 <body>
-  <header class="p-3 bg-dark text-white">
+  <header class="p-3 bg-dark text-white" style="background-color: #212529; box-shadow: 0px 8px 4px black;">
     <div class="container">
-      <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
-        <a href="/" class="d-flex align-items-center mb-2 mb-lg-0 text-white text-decoration-none">
-          <svg class="bi me-2" width="40" height="32" role="img" aria-label="Bootstrap"><use xlink:href="#bootstrap"/></svg>
-        </a>
-        <% if @user.nil? %>
-        <%= link_to "Dummy panel", userpanel_path %>
-        <% else %>
-        <%= link_to "User panel", admin_user_path(@user) %>
-        <% end %>
-        <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
-          <li><a href="#" class="nav-link px-2 text-secondary">Button 1</a></li>
-          <li><a href="#" class="nav-link px-2 text-white">Button 2</a></li>
-          <li><a href="#" class="nav-link px-2 text-white">Button 3</a></li>
-          <li><a href="#" class="nav-link px-2 text-white">Button 4</a></li>
-        </ul>
-      </div>
+
+      <div class="upperpanel">
+        <div class="upperbuttons">
+          <table>
+            <td>
+              <% if @user.nil? %>
+              <%= link_to "Dummy panel", root_path %>
+              <% else %>
+              <%= link_to "User panel", user_path(@user), {:style=>'color:#BDBDBD;', :class => "css_class"} %>
+              <% end %></td>
+              <td>
+                <% if @user.nil? %>
+                <%= link_to "Dummy panel", root_path %>
+                <% else %>
+                <%= link_to "Callories calculator", user_path(@user), {:style=>'color:#BDBDBD;', :class => "css_class"} %>
+                <% end %></td>
+                <td>
+                  <%= link_to "Main page", root_path, {:style=>'color:#BDBDBD;', :class => "css_class"} %>
+                <td>
+              <div class="authlink"> <%= link_to "Log in", auth_path, {:style=>'color:#BDBDBD;', :class => "css_class"} %></div></td>
+              <td>
+                <% if @user.nil? %>
+                <% else %>
+                <%= link_to "Admin User panel", admin_user_path(@user), {:style=>'color:#BDBDBD;', :class => "css_class"} %>
+                <% end %>
+              </td>
+          </table>
+        </div>
     </div>
   </header>
-
-  <main class="container mt-4">
-    <div class="row justify-content-center">
-      <div class="col-md-6">
-        <div class="input-group">
-          <input type="text" class="form-control" placeholder="Enter text here">
-          <button class="btn btn-primary" type="button">Submit</button>
-        </div>
+  <style>.general-container {
+    background-image: url('/assets/fitbackground_white.png');
+    background-repeat: repeat-x repeat-y;
+    position: absolute;
+    margin-top: 0%;
+    margin-left: 0%;
+    padding-left: 4%;
+    min-width: 640px;
+    width: 100%;
+    height: 100%;
+    min-height:800px;/* Set height as per your wish. */
+}</style>
+  <div class="general-container">
+  <main>
+    <div>
+      <div class="container22">
+        <input type="text" class="text-field22" placeholder="Write your location and find our nearest club!">
+        <button class="button22">Find</button>
+      </div>
+      <style type="text/css">
+        .tg  {border-collapse:collapse;border-spacing:0;}
+        .tg td{border-color:black;border-style:solid;border-width:1px;font-family:Arial, sans-serif;font-size:14px; color: white;
+          overflow:hidden;padding:20px 5px;word-break:normal;}
+        .tg th{border-color:black;border-style:solid;border-width:1px;font-family:Arial, sans-serif;font-size:14px; color: white;
+          font-weight:normal;overflow:hidden;padding:10px 5px;word-break:normal;}
+        .tg .tg-0lax{text-align:left;vertical-align:top}
+        </style>
+        <style>.proxy-container {
+          background: #252525;
+          padding-left: 5%;
+          padding-right: 5%;
+          margin-top: 1%;
+          padding-top: 2%;
+          position: absolute;
+          width: 90%;
+          height:500px;/* Set height as per your wish. */
+          box-shadow: -4px 8px 4px black;
+      }</style>
+      <div class="proxy-container";">
+        <table class="tg">
+        <tbody>
+          <tr>
+            <td class="tg-0lax">Our working hours are from 7AM up to 7PM</td>
+          </tr>
+          <tr>
+            <td class="tg-0lax">See Trainer List</td>
+          </tr>
+          <tr>
+            <td class="tg-0lax">See Available Subscriptions</td>
+          </tr>
+          <tr>
+            <td class="tg-0lax">About us</td>
+          </tr>
+          <tr>
+            
+          </tr>
+        </tbody>
+        </table>
       </div>
     </div>
+  </div>
   </main>
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.0.2/js/bootstrap.bundle.min.js"></script>

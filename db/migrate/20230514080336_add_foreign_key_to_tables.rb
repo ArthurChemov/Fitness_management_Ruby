@@ -6,6 +6,5 @@ class AddForeignKeyToTables < ActiveRecord::Migration[6.1]
     add_foreign_key :users, :trainings
     add_foreign_key :users, :nutrits
     add_foreign_key :users, :subscriptions
-    add_foreign_key :users, :coupons
   end
 end
