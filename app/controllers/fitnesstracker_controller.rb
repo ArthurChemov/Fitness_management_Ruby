@@ -1,6 +1,8 @@
 class FitnesstrackerController < ApplicationController
     def index
       @user = get_auth
+      @trainer = get_trainer
+      @admin = get_admin
     end
     def set_cookie
         # Get the user input from params
@@ -17,6 +19,24 @@ class FitnesstrackerController < ApplicationController
     end
     
     private
+    def get_admin
+      log = cookies[:email]
+      pwd = cookies[:password]
+      tmpuser = AdminUser.find_by(email: log)
+      if tmpuser != nil
+        return tmpuser
+      end
+    end
+
+    def get_trainer
+      log = cookies[:email]
+      pwd = cookies[:password]
+      tmpuser = Trainer.find_by(email: log)
+      if tmpuser != nil
+        return tmpuser
+      end
+    end
+
     def get_auth
         # Get the value of the cookie
         log = cookies[:email]

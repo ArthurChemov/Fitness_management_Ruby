@@ -46,7 +46,11 @@
             <td>
               <% if @user.nil? %>
               <%= link_to "Dummy panel", root_path %>
-              <% else %>
+              <% elsif !@trainer.nil? %>
+              <%= link_to "Trainer panel", user_path(@user), {:style=>'color:#BDBDBD;', :class => "css_class"} %>
+              <br>
+              <%= link_to "User panel", user_path(@user), {:style=>'color:#BDBDBD;', :class => "css_class"} %>
+              <% elsif !@user.nil? %>
               <%= link_to "User panel", user_path(@user), {:style=>'color:#BDBDBD;', :class => "css_class"} %>
               <% end %></td>
               <td>
@@ -60,7 +64,7 @@
                 <td>
               <div class="authlink"> <%= link_to "Log in", auth_path, {:style=>'color:#BDBDBD;', :class => "css_class"} %></div></td>
               <td>
-                <% if @user.nil? %>
+                <% if @admin.nil? %>
                 <% else %>
                 <%= link_to "Admin User panel", admin_user_path(@user), {:style=>'color:#BDBDBD;', :class => "css_class"} %>
                 <% end %>
@@ -84,10 +88,6 @@
   <div class="general-container">
   <main>
     <div>
-      <div class="container22">
-        <input type="text" class="text-field22" placeholder="Write your location and find our nearest club!">
-        <button class="button22">Find</button>
-      </div>
       <style type="text/css">
         .tg  {border-collapse:collapse;border-spacing:0;}
         .tg td{border-color:black;border-style:solid;border-width:1px;font-family:Arial, sans-serif;font-size:14px; color: white;
