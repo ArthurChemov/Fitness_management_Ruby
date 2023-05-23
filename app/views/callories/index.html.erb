@@ -1,4 +1,4 @@
-<style>
+<span> </span><style>
   .container22 {
     text-align: center;
     position: relative;
@@ -45,9 +45,9 @@
           <table>
             <td>
               <% if @user.nil? %>
-              <%= link_to "Nutrition plan to register", root_path, {:style=>'color:#BDBDBD;', :class => "css_class"} %>
+              <%= link_to "Dummy panel", root_path %>
               <% elsif !@trainer.nil? %>
-              <%= link_to "Trainer panel", trainermainpage_path, {:style=>'color:#BDBDBD;', :class => "css_class"} %>
+              <%= link_to "Trainer panel", trainer_path(@trainer), {:style=>'color:#BDBDBD;', :class => "css_class"} %>
               <br>
               <%= link_to "User panel", user_path(@user), {:style=>'color:#BDBDBD;', :class => "css_class"} %>
               <% elsif !@user.nil? %>
@@ -55,9 +55,9 @@
               <% end %></td>
               <td>
                 <% if @user.nil? %>
-                <%= link_to "Nutrition info", callories_path, {:style=>'color:#BDBDBD;', :class => "css_class"} %>
+                <%= link_to "Dummy panel", root_path %>
                 <% else %>
-                <%= link_to "Callories schelude", callories_path, {:style=>'color:#BDBDBD;', :class => "css_class"} %>
+                <%= link_to "Callories calculator", user_path(@user), {:style=>'color:#BDBDBD;', :class => "css_class"} %>
                 <% end %></td>
                 <td>
                   <%= link_to "Main page", root_path, {:style=>'color:#BDBDBD;', :class => "css_class"} %>
@@ -111,19 +111,21 @@
         <table class="tg">
         <tbody>
           <tr>
-            <td class="tg-0lax">Our working hours are from 7AM up to 7PM</td>
-          </tr>
-          <tr>
-            <td class="tg-0lax">See Trainer List</td>
-          </tr>
-          <tr>
-            <td class="tg-0lax">See Available Subscriptions</td>
-          </tr>
-          <tr>
-            <td class="tg-0lax">About us</td>
-          </tr>
-          <tr>
-            
+            <td>
+            <% if @Uservar != nil %>
+              <span>Your diet is:<%= @Nutritvar.description %><br>
+                Callories:<%= @Nutritvar.callories %> <br>
+                Protein:<%= @Nutritvar.protein %> <br>
+                Fats:<%= @Nutritvar.fats %> <br>
+                Carbohydrates:<%= @Nutritvar.carbohydrates %>
+              </span>
+            <% else %>
+              <span>Consuming a healthy diet throughout the life-course helps to prevent malnutrition in all its forms as well as a range of noncommunicable diseases (NCDs) and conditions. However, increased production of processed foods, rapid urbanization and changing lifestyles have led to a shift in dietary patterns. 
+                People are now consuming more foods high in energy, fats, free sugars and salt/sodium, and many people do not eat enough fruit, vegetables and other dietary fibre such as whole grains.
+                The exact make-up of a diversified, balanced and healthy diet will vary depending on individual characteristics (e.g. age, gender, lifestyle and degree of physical activity), cultural context, locally available foods and dietary customs. 
+                However, the basic principles of what constitutes a healthy diet remain the same</span>
+            <% end %>
+            </td>
           </tr>
         </tbody>
         </table>

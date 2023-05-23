@@ -1,0 +1,13 @@
+<%= form_with model: @User do |i| %><th></th>
+<%= i.text_field :email, required: true, minlength: 2, placeholder: "email" %><th></th>
+<%= i.text_field :encrypted_password, required: true, minlength: 2, placeholder: "password" %><th></th>
+<%= i.text_field :trainer_id, required: true, minlength: 2, placeholder: "trainer" %><th></th>
+<%= i.text_field :training_id, required: true, minlength: 2, placeholder: "training" %><th></th>
+<%= i.text_field :nutrit_id, required: true, placeholder: "nutrit" %><th></th>
+<%= i.text_field :sex, required: true, placeholder: "sex" %><th></th>
+<%= i.text_field :height, required: true, placeholder: "height" %><th></th>
+<%= i.text_field :weight, required: true, placeholder: "weight" %><th></th>
+<%= i.text_field :tel, required: true, placeholder: "tel" %><th></th>
+<%= i.text_field :subscription_id, required: true, placeholder: "subscription" %><th></th>
+<%= i.submit "Submit into table" %>
+<% end %>

@@ -6,14 +6,11 @@ Rails.application.routes.draw do
   
   root 'fitnesstracker#index'
   get '/userpanel/:user', to: 'userpanel#mainpage', as: 'user'
+  get '/trainermainpage', to: 'userpanel#trainermainpage'
+  get '/callories', to: 'callories#index'
   get '/dummypage', to: 'userpanel#dummypage'
   resources :userpanel do
-    resources :trainer do
-
-      get '/userpanel', to: 'userpanel#dummypage'
-      get '/userpanel:dummy', to: 'dummypage#dummypage'
-    end
-    
+    post '/new', to: 'userpanel#new' 
   end
   get       '/auth',          to: 'auth#authorize'
   get       '/auth/:email',          to: 'auth#set_cookie'
