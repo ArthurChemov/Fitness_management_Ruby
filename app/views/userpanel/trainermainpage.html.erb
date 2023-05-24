@@ -14,15 +14,19 @@
             <table>
               <td>
                 <% if @user.nil? %>
-                <%= link_to "Dummy panel", root_path %>
-                <% else %>
+                <%= link_to "Nutrition plan to register", root_path, {:style=>'color:#BDBDBD;', :class => "css_class"} %>
+                <% elsif !@trainer.nil? %>
+                <%= link_to "Trainer panel", trainermainpage_path, {:style=>'color:#BDBDBD;', :class => "css_class"} %>
+                <br>
+                <%= link_to "User panel", user_path(@user), {:style=>'color:#BDBDBD;', :class => "css_class"} %>
+                <% elsif !@user.nil? %>
                 <%= link_to "User panel", user_path(@user), {:style=>'color:#BDBDBD;', :class => "css_class"} %>
                 <% end %></td>
                 <td>
                   <% if @user.nil? %>
-                  <%= link_to "Dummy panel", root_path %>
+                  <%= link_to "Nutrition info", callories_path, {:style=>'color:#BDBDBD;', :class => "css_class"} %>
                   <% else %>
-                  <%= link_to "Callories calculator", user_path(@user), {:style=>'color:#BDBDBD;', :class => "css_class"} %>
+                  <%= link_to "Callories schelude", callories_path, {:style=>'color:#BDBDBD;', :class => "css_class"} %>
                   <% end %></td>
                   <td>
                     <%= link_to "Main page", root_path, {:style=>'color:#BDBDBD;', :class => "css_class"} %>
@@ -96,6 +100,8 @@
                         <div class="position-relative text-center">
                             <span><b>Training preferation:<%= @Trainingvar.name %></b></span>
                             <%= button_to "New User", userpanel_new_path(@Uservar) %>
+                            <%= button_to "New nutrition plan", userpanel_newnutrit_path(@Uservar) %>
+                            <%= button_to "New nutrition plan", userpanel_newtraining_path(@Uservar) %>
                         </div>
                     </div>
                 </div>

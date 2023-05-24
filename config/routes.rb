@@ -10,7 +10,11 @@ Rails.application.routes.draw do
   get '/callories', to: 'callories#index'
   get '/dummypage', to: 'userpanel#dummypage'
   resources :userpanel do
-    post '/new', to: 'userpanel#new' 
+    post '/new', to: 'userpanel#new'
+    post '/newnutrit', to:'userpanel#newnutrit'
+    post '/newtraining', to:'userpanel#newtraining'
+    post '', to: 'userpanel#addnutrition'
+    post '', to: 'userpanel#addtraining'
   end
   get       '/auth',          to: 'auth#authorize'
   get       '/auth/:email',          to: 'auth#set_cookie'

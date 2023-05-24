@@ -1,13 +1,19 @@
-<%= form_with model: @User do |i| %><th></th>
-<%= i.text_field :email, required: true, minlength: 2, placeholder: "email" %><th></th>
-<%= i.text_field :encrypted_password, required: true, minlength: 2, placeholder: "password" %><th></th>
-<%= i.text_field :trainer_id, required: true, minlength: 2, placeholder: "trainer" %><th></th>
-<%= i.text_field :training_id, required: true, minlength: 2, placeholder: "training" %><th></th>
-<%= i.text_field :nutrit_id, required: true, placeholder: "nutrit" %><th></th>
-<%= i.text_field :sex, required: true, placeholder: "sex" %><th></th>
-<%= i.text_field :height, required: true, placeholder: "height" %><th></th>
-<%= i.text_field :weight, required: true, placeholder: "weight" %><th></th>
-<%= i.text_field :tel, required: true, placeholder: "tel" %><th></th>
-<%= i.text_field :subscription_id, required: true, placeholder: "subscription" %><th></th>
-<%= i.submit "Submit into table" %>
+<%= form_for @user, :url => { :action => "create"} do |i| %>
+<tr>
+<td><%= i.text_field  :email, required: true, minlength: 2, placeholder: "email" %></td>
+<td><%= i.text_field  :encrypted_password, required: true, minlength: 2, placeholder: "password" %></td><br>
+</tr>
+<tr>
+<td>Trainer:<%= i.collection_select :trainer_id, Trainer.order(:email),:id,:email, include_blank: true %></td>
+<td>Training:<%= i.collection_select :training_id, Training.order(:name),:id,:name, include_blank: true %></td>
+<td>Nutrit:<%= i.collection_select :nutrit_id, Nutrit.order(:name),:id,:name, include_blank: true %></td>
+<td>Subscription:<%= i.collection_select :subscription_id, Subscription.order(:subscriptiontype),:id,:subscriptiontype, include_blank: true %></td>
+</tr>
+<tr>
+<td><%= i.text_field  :sex, required: true, placeholder: "sex" %></td>
+<td><%= i.text_field  :height, required: true, placeholder: "height" %></td>
+<td><%= i.text_field  :weight, required: true, placeholder: "weight" %></td>
+<td><%= i.text_field  :tel, required: true, placeholder: "tel" %></td>
+</tr>
+<%= submit_tag "Submit into table" %>
 <% end %>

@@ -32,7 +32,47 @@ class UserpanelController < ApplicationController
     end
 
     def new
-      @User = User.new
+      @user = User.new
+    end
+
+    def create
+      parameters = user_params
+      #place to make proper hash, not implemented atm
+      @user = User.new(user_params)
+
+      if @user.save
+        redirect_to root_path
+      else
+        render :new
+      end
+    end
+
+    def newnutrit 
+      @nutrit = Nutrit.new
+    end
+
+    def addnutrition 
+      @nutrit = Nutrit.new(nutrition_params)
+
+      if @nutrit.save
+        redirect_to root_path
+      else
+        render :newnutrit
+      end
+    end
+    
+    def newtraining
+      @training = Training.new
+    end
+
+    def addtraining
+      @training = Training.new(training_params)
+
+      if @training.save
+        redirect_to root_path
+      else
+        render :new
+      end
     end
 
     def dummypage
@@ -63,4 +103,19 @@ class UserpanelController < ApplicationController
           return nil
         end
     end
-end
+
+    def user_params
+      params.extract!(:commit, :authenticity_token)
+      return params.required(:user).permit(:email, :encrypted_password, :trainer_id, :training_id, :nutrit_id, :subscription_id, :sex, :height, :weight, :tel)
+    end
+
+    def nutrition_params 
+      params.extract!(:commit, :authenticity_token)
+      return params.required(:nutrit).permit(:name, :description, :callories, :protein, :fats, :carbohydrates)
+    end
+
+    def training_params 
+      params.extract!(:commit, :authenticity_token)
+      return params.required(:training).permit(:name, :description, :rate)
+    end
+  end

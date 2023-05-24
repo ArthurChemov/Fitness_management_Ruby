@@ -1,0 +1,13 @@
+<%= form_for @nutrit, :url => { :action => "addnutrition"} do |i| %>
+<tr>
+<td><%= i.text_area  :name, required: true, minlength: 2, placeholder: "name" %></td>
+<td><%= i.text_area  :description, required: true, minlength: 2, placeholder: "description" %></td><br>
+</tr>
+<tr>
+<td><%= i.text_field  :callories, required: true, minlength: 1, placeholder: "callories" %></td>
+<td><%= i.text_field  :protein, required: true, minlength: 1, placeholder: "protein" %></td>
+<td><%= i.text_field  :fats, required: true, minlength: 1, placeholder: "fats" %></td>
+<td><%= i.text_field  :carbohydrates, required: true, placeholder: "carbohydrates" %></td>
+</tr>
+<%= submit_tag "Submit into table" %>
+<% end %>

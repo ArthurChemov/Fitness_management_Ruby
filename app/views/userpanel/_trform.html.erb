@@ -1,0 +1,8 @@
+<%= form_for @training, :url => { :action => "addtraining"} do |i| %>
+<tr>
+<td><%= i.text_area  :name, required: true, minlength: 2, placeholder: "name" %></td>
+<td><%= i.text_area  :description, required: true, minlength: 2, placeholder: "description" %></td><br>
+<td><%= i.text_field  :rate, required: true, minlength: 1, placeholder: "rate" %></td>
+</tr>
+<%= submit_tag "Submit into table" %>
+<% end %>
