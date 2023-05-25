@@ -86,7 +86,8 @@
                     <div class="row justify-content-center align-items-center vh-100">
                         <div class="col-lg-6">
                             <div class="position-relative text-center">
-                                <span>Trained users:<%= @TrainedUsers %></span>
+                              
+                                <span>Trained users:<%= @TrainedUsers.scan(@regex).flatten %></span>
                             </div>
                         </div>
                     </div>
@@ -101,7 +102,7 @@
                             <span><b>Training preferation:<%= @Trainingvar.name %></b></span>
                             <%= button_to "New User", userpanel_new_path(@Uservar) %>
                             <%= button_to "New nutrition plan", userpanel_newnutrit_path(@Uservar) %>
-                            <%= button_to "New nutrition plan", userpanel_newtraining_path(@Uservar) %>
+                            <%= button_to "New training plan", userpanel_newtraining_path(@Uservar) %>
                         </div>
                     </div>
                 </div>

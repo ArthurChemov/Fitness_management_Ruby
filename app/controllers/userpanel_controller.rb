@@ -6,6 +6,7 @@ class UserpanelController < ApplicationController
             @message = "Welcome, authorized user!"
             @Trainervar = Trainer.find(@Uservar.trainer_id)
             @Trainingvar = Training.find(@Uservar.training_id)
+            @Nutritvar = Nutrit.find(@Uservar.nutrit_id)
         else
         # show default content for unauthorized users
             @message = "Please log in to access this page."
@@ -22,7 +23,9 @@ class UserpanelController < ApplicationController
           @message = "Welcome, authorized user!"
           @Trainervar = get_trainer
           @Trainingvar = Training.find(@Uservar.training_id)
-          @TrainedUsers = User.where("trainer_id = @Trainervar.id")
+          looktrained = User.where("trainer_id = #{@Trainervar.id}")
+          @regex = /email: "([^"]+)"/
+          @TrainedUsers = looktrained.inspect()
       else
       # show default content for unauthorized users
           @message = "Please log in to access this page."

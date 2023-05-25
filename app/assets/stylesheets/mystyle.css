@@ -1,0 +1,32 @@
+.title_bar{
+    background: black;
+    background-color: #ffffff;
+}
+.index{
+    background: #F4F5F5;
+}
+.admin_users{
+    background-image: url('/assets/fitbackground_white.png');
+    background-repeat: repeat-x repeat-y;
+}
+
+.active_admin{
+    background-image: url('/assets/fitbackground_white.png');
+    background-repeat: repeat-x repeat-y;
+}
+
+.logged_in{
+    background-image: url('/assets/fitbackground_white.png');
+    background-repeat: repeat-x repeat-y;
+}
+
+.admin_namespace{
+    background-image: url('/assets/fitbackground_white.png');
+    background-repeat: repeat-x repeat-y;
+}
+.paginated_collection{
+    border-color: black;
+}
+.index_as_table{
+    border-color: black;
+}

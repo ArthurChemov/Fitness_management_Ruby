@@ -90,11 +90,20 @@
                             <% case @Uservar.training_id %>
                             <% when 1%>
                             <%= link_to image_tag('heavy_athletics_alpha.png', class: 'img-fluid rounded', alt: 'Your Image', style: 'width: 400px; height: 400px; box-shadow: -3px 5px 3px black;'), '#', class: 'text-decoration-none' %>
+                            <% when 2%>
+                            <%= link_to image_tag('acrobatics_alpha.jpg.png', class: 'img-fluid rounded', alt: 'Your Image', style: 'width: 400px; height: 400px; box-shadow: -3px 5px 3px black;'), '#', class: 'text-decoration-none' %>
+                            <% when 3%>
+                            <%= link_to image_tag('acrobatics_alpha.jpg_alpha.png', class: 'img-fluid rounded', alt: 'Your Image', style: 'width: 400px; height: 400px; box-shadow: -3px 5px 3px black;'), '#', class: 'text-decoration-none' %>
+                            <% when 4%>
+                            <%= link_to image_tag('swimming_alpha.png', class: 'img-fluid rounded', alt: 'Your Image', style: 'width: 400px; height: 400px; box-shadow: -3px 5px 3px black;'), '#', class: 'text-decoration-none' %>
+                            <% when 5%>
+                            <%= link_to image_tag('threadmill_alpha.png', class: 'img-fluid rounded', alt: 'Your Image', style: 'width: 400px; height: 400px; box-shadow: -3px 5px 3px black;'), '#', class: 'text-decoration-none' %>
                             <% else %>
                             <%= link_to image_tag('image1.jpg', class: 'img-fluid rounded', alt: 'Your Image', style: 'width: 400px; height: 400px;'), '#', class: 'text-decoration-none' %>
                             <% end %>  
                         </div>
-                        <span><b>Training preferation:<%= @Trainingvar.name %></b></span>
+                        <span><b>Training preferation:<%= @Trainingvar.name %></b></span><br>
+                        <span><b>Your nutrition plan:<%= @Nutritvar.name %></b></span>
                     </div>
                 </div>
             </div>

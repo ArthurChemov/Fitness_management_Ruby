@@ -4,6 +4,7 @@ class FitnesstrackerController < ApplicationController
       @trainer = get_trainer
       @admin = get_admin
     end
+    
     def set_cookie
         # Get the user input from params
         user_input = params[:user_input]
