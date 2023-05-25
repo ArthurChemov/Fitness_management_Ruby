@@ -5,20 +5,16 @@ application up and running.
 
 Things you may want to cover:
 
-* Ruby version
-
-* System dependencies
+* Ruby version 2.2.0
 
 * Configuration
 
-* Database creation
+* Database system PostgreSQL
 
 * Database initialization
 
-* How to run the test suite
+  PGAdmin suggested to oversee this database
+
+* How to run the test suite: use Powershell suite or Unix system terminal to launch rails server
 
 * Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
